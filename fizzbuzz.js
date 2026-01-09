@@ -10,9 +10,6 @@ function fizzbuzz(n) {
   if (!Number.isFinite(n)) {
     throw new Error("Infinityは無効な入力です");
   }
-  if (!Number.isInteger(n)) {
-    throw new Error("入力は整数である必要があります");
-  }
   if (n <= 0) {
     throw new Error("入力は正の整数である必要があります");
   }

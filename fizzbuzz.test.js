@@ -64,7 +64,7 @@ describe("FizzBuzz", () => {
     });
 
     test("小数を渡すとエラー", () => {
-      expect(() => fizzbuzz(3.5)).toThrow("入力は整数である必要があります");
+      expect(() => fizzbuzz(3.5)).toThrow("入力は安全な整数範囲内である必要があります");
     });
 
     test("0を渡すとエラー", () => {
