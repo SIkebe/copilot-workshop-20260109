@@ -1,1 +1,13 @@
 node_modules/
+coverage/
+dist/
+.npm/
+.vscode/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+bin/
+obj/
