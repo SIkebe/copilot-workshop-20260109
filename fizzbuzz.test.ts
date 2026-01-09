@@ -1,4 +1,4 @@
-const { fizzbuzz } = require("./fizzbuzz");
+import { fizzbuzz } from "./fizzbuzz";
 
 describe("FizzBuzz", () => {
   // 15の倍数 → FizzBuzz
@@ -29,10 +29,4 @@ describe("FizzBuzz", () => {
     });
   });
 
-  // 失敗例（意図的に失敗するテスト）
-  describe("失敗例", () => {
-    test("3は間違ってBuzzを期待（失敗する）", () => {
-      expect(fizzbuzz(3)).toBe("Buzz"); // 実際はFizz
-    });
-  });
 });
