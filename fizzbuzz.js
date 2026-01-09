@@ -18,7 +18,7 @@ function printFizzBuzz(max = 20) {
 
 // スクリプトとして直接実行された場合のみ出力
 if (require.main === module) {
-  printFizzBuzz(20);
+  printFizzBuzz();
 }
 
 module.exports = { fizzbuzz, printFizzBuzz };
