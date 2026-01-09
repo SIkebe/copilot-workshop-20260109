@@ -29,10 +29,58 @@ describe("FizzBuzz", () => {
     });
   });
 
-  // 失敗例（意図的に失敗するテスト）
-  describe("失敗例", () => {
-    test("3は間違ってBuzzを期待（失敗する）", () => {
-      expect(fizzbuzz(3)).toBe("Buzz"); // 実際はFizz
+  // エラーハンドリングのテスト
+  describe("入力値の検証", () => {
+    test("文字列を渡すとエラー", () => {
+      expect(() => fizzbuzz("3")).toThrow("入力は数値である必要があります");
+    });
+
+    test("nullを渡すとエラー", () => {
+      expect(() => fizzbuzz(null)).toThrow("入力は数値である必要があります");
+    });
+
+    test("undefinedを渡すとエラー", () => {
+      expect(() => fizzbuzz(undefined)).toThrow("入力は数値である必要があります");
+    });
+
+    test("配列を渡すとエラー", () => {
+      expect(() => fizzbuzz([1, 2, 3])).toThrow("入力は数値である必要があります");
+    });
+
+    test("オブジェクトを渡すとエラー", () => {
+      expect(() => fizzbuzz({ n: 3 })).toThrow("入力は数値である必要があります");
+    });
+
+    test("NaNを渡すとエラー", () => {
+      expect(() => fizzbuzz(NaN)).toThrow("NaNは無効な入力です");
+    });
+
+    test("Infinityを渡すとエラー", () => {
+      expect(() => fizzbuzz(Infinity)).toThrow("Infinityは無効な入力です");
+    });
+
+    test("-Infinityを渡すとエラー", () => {
+      expect(() => fizzbuzz(-Infinity)).toThrow("Infinityは無効な入力です");
+    });
+
+    test("小数を渡すとエラー", () => {
+      expect(() => fizzbuzz(3.5)).toThrow("入力は整数である必要があります");
+    });
+
+    test("0を渡すとエラー", () => {
+      expect(() => fizzbuzz(0)).toThrow("入力は正の整数である必要があります");
+    });
+
+    test("負の数を渡すとエラー", () => {
+      expect(() => fizzbuzz(-5)).toThrow("入力は正の整数である必要があります");
+    });
+
+    test("MAX_SAFE_INTEGERを超える数を渡すとエラー", () => {
+      expect(() => fizzbuzz(Number.MAX_SAFE_INTEGER + 1)).toThrow("入力は安全な整数範囲内である必要があります");
+    });
+
+    test("MAX_SAFE_INTEGERは有効", () => {
+      expect(fizzbuzz(Number.MAX_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER);
     });
   });
 });
