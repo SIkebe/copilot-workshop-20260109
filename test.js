@@ -21,7 +21,23 @@ class Student {
     }
 }
 
-// テストコード
-const student1 = new Student("Alice", 20, "A");
-console.log(student1.getInfo()); // "Name: Alice, Age: 20, Grade: A"
-console.log(student1.isAdult()); // true
+describe("calculateSum", () => {
+    test("should add two numbers", () => {
+        expect(calculateSum(1, 2)).toBe(3);
+        expect(calculateSum(-1, 5)).toBe(4);
+    });
+});
+
+describe("Student", () => {
+    test("getInfo should return formatted string", () => {
+        const student1 = new Student("Alice", 20, "A");
+        expect(student1.getInfo()).toBe("Name: Alice, Age: 20, Grade: A");
+    });
+
+    test("isAdult should check age threshold", () => {
+        const adultStudent = new Student("Bob", 18, "B");
+        const minorStudent = new Student("Eve", 17, "C");
+        expect(adultStudent.isAdult()).toBe(true);
+        expect(minorStudent.isAdult()).toBe(false);
+    });
+});

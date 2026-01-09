@@ -31,8 +31,8 @@ describe("FizzBuzz", () => {
 
   // 失敗例（意図的に失敗するテスト）
   describe("失敗例", () => {
-    test("3は間違ってBuzzを期待（失敗する）", () => {
-      expect(fizzbuzz(3)).toBe("Buzz"); // 実際はFizz
+    test("3はFizzを返す", () => {
+      expect(fizzbuzz(3)).toBe("Fizz");
     });
   });
 });
