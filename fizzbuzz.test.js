@@ -74,5 +74,13 @@ describe("FizzBuzz", () => {
     test("負の数を渡すとエラー", () => {
       expect(() => fizzbuzz(-5)).toThrow("入力は正の整数である必要があります");
     });
+
+    test("MAX_SAFE_INTEGERを超える数を渡すとエラー", () => {
+      expect(() => fizzbuzz(Number.MAX_SAFE_INTEGER + 1)).toThrow("入力は安全な整数範囲内である必要があります");
+    });
+
+    test("MAX_SAFE_INTEGERは有効", () => {
+      expect(fizzbuzz(Number.MAX_SAFE_INTEGER)).toBe(Number.MAX_SAFE_INTEGER);
+    });
   });
 });

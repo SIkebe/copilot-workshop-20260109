@@ -16,6 +16,9 @@ function fizzbuzz(n) {
   if (n <= 0) {
     throw new Error("入力は正の整数である必要があります");
   }
+  if (!Number.isSafeInteger(n)) {
+    throw new Error("入力は安全な整数範囲内である必要があります");
+  }
 
   if (n % 15 === 0) return "FizzBuzz";
   if (n % 3 === 0) return "Fizz";
